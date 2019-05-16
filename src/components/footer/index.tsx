@@ -7,7 +7,12 @@ export default function Footer() {
         <footer className="Wiki-footer">
             <div className="contacts">
                 <div className="contacts-git">
-                    <a className="contacts__link" href="#" target="_blank" rel="noopener noreferrer">
+                    <a
+                        className="contacts__link"
+                        href="https://github.com/KoMeDiAnTNDP/wiki-react"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <span className="contacts__icon git__icon" />
                         Source code
                     </a>
