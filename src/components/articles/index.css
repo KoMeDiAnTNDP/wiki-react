@@ -1,0 +1,40 @@
+.container
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.wiki-article
+{
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto 0;
+    width: 50%;
+    animation: slide-up .4s ease;
+}
+
+.article__title-link,
+.article__title-link:visited
+{
+    color: #000;
+    text-decoration: none;
+}
+
+.article__title-link:hover
+{
+    text-decoration: underline;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

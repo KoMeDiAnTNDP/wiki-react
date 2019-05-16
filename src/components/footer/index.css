@@ -1,0 +1,64 @@
+.Wiki-footer
+{
+    display: flex;
+    width: 100%;
+    border-top: 2px solid #d7d7d7;
+    background-color: #f8f8f8;
+    margin-top: 10px;
+    position: fixed;
+    bottom: 0;
+}
+
+.contacts
+{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 5px auto 5px 10px;
+}
+
+.contacts-git
+{
+    margin-bottom: 10px;
+}
+
+.wiki-api
+{
+    display: flex;
+    margin: auto 10px auto 0;
+}
+
+.contacts__icon,
+.wiki-api__icon
+{
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.git__icon
+{
+    background: url("../../pic/github.svg");
+}
+
+.mail__icon
+{
+    background: url("../../pic/gmail.svg");
+}
+
+.wiki-api__icon
+{
+    background-size: 16px 16px;
+    background-image: url("../../pic/mediawikiwiki.png");
+}
+
+.contacts__link,
+.wiki-api__link,
+.contacts__link:visited,
+.wiki-api__link:visited
+{
+    display: flex;
+    text-decoration: none;
+    color: #000;
+}

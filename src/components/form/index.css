@@ -1,0 +1,26 @@
+.form
+{
+    display: flex;
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+}
+
+.form__input
+{
+    flex-grow: 1;
+}
+
+.form__button
+{
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.form__button-icon
+{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    margin: auto;
+}
