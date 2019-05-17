@@ -1,12 +1,30 @@
-.Wiki-searcher
+.wikiSearcher
 {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.Wiki-head
+.wikiHead
 {
     width: 100%;
     text-align: center;
 }
+
+.theme
+{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: url("pic/moon.svg");
+}
+
+.blackTheme
+{
+    composes: theme;
+    background: url("pic/moon-color.svg");
+}
+

@@ -3,24 +3,62 @@
     display: flex;
     margin: 0 auto;
     width: 50%;
-    height: 100%;
 }
 
-.form__input
+.input
 {
     flex-grow: 1;
 }
 
-.form__button
+.button
 {
     margin-left: 5px;
     cursor: pointer;
 }
 
-.form__button-icon
+.buttonIcon
 {
     width: 16px;
     height: 16px;
     display: flex;
     margin: auto;
+}
+
+.searchLanguage
+{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.radioLang
+{
+    display: none;
+}
+
+.labelLang
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.radioLang[id="en"]:checked ~ .iconEng,
+.radioLang[id="ru"]:checked ~ .iconRu
+{
+    opacity: 1;
+}
+
+.iconEng
+{
+    background: url("../../pic/united-kingdom.svg");
+    margin-right: 10px;
+}
+
+.iconRu
+{
+    background: url("../../pic/russia.svg");
 }

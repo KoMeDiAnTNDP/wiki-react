@@ -6,7 +6,7 @@
     margin-bottom: 100px;
 }
 
-.wiki-article
+.wikiArticle
 {
     display: flex;
     flex-direction: column;
@@ -15,14 +15,20 @@
     animation: slide-up .4s ease;
 }
 
-.article__title-link,
-.article__title-link:visited
+.titleLink
 {
     color: #000;
     text-decoration: none;
 }
 
-.article__title-link:hover
+.titleLinkWhite
+{
+    color: #fff;
+    text-decoration: none;
+}
+
+.titleLink:hover,
+.titleLinkWhite:hover
 {
     text-decoration: underline;
 }

@@ -1,40 +1,41 @@
 import React from 'react';
+import cn from 'classnames';
 
-import './index.css'
+import styles from './footer.module.css'
 
-export default function Footer() {
+export function Footer() {
     return (
-        <footer className="Wiki-footer">
-            <div className="contacts">
-                <div className="contacts-git">
+        <footer className={styles.wikiFooter}>
+            <div className={styles.contacts}>
+                <div className={styles.contactsGit}>
                     <a
-                        className="contacts__link"
+                        className={styles.contactsLink}
                         href="https://github.com/KoMeDiAnTNDP/wiki-react"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <span className="contacts__icon git__icon" />
+                        <span className={cn(styles.contactsIcon, styles.gitIcon)} />
                         Source code
                     </a>
                 </div>
                 <div className="contacts-mail">
-                    <a className="contacts__link"
+                    <a className={styles.contactsLink}
                        href="mailto:nikitachikunov42@gmail.com"
                        target="_blank"
                        rel="noopener noreferrer"
                     >
-                        <span className="contacts__icon mail__icon" />
+                        <span className={cn(styles.contactsIcon, styles.mailIcon)} />
                         Email
                     </a>
                 </div>
             </div>
-            <div className="wiki-api">
-                <a className="wiki-api__link"
+            <div className={styles.wikiApi}>
+                <a className={styles.wikiApiLink}
                    href="https://www.mediawiki.org/wiki/API:Search"
                    target="_blank"
                    rel="noopener noreferrer"
                 >
-                    <span className="wiki-api__icon" />
+                    <span className={styles.wikiApiIcon} />
                     API
                 </a>
             </div>
