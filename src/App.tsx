@@ -39,21 +39,15 @@ export default class App extends Component {
     };
 
     render() {
-        const theme = this.state.isBlack ? styles.blackTheme : styles.theme;
-
-        if (this.state.isBlack) {
-            document.body.classList.add('black-theme');
-        }
-        else {
-            document.body.classList.remove('black-theme');
-        }
+        const moon = this.state.isBlack ? styles.themeMoonColor : styles.themeMoon;
+        const themeBlack =  this.state.isBlack ? styles.blackTheme : styles.wikiSearcher;
 
         return (
-            <div className={styles.wikiSearcher}>
+            <div className={themeBlack}>
                 <header className={styles.wikiHead}>
                     <h1>Wiki Searcher</h1>
                 </header>
-                <div className={theme} onClick={this.handleThemeClick} />
+                <div className={moon} onClick={this.handleThemeClick} />
                 <Form onSubmit={this.handleFormSubmit} onReset={this.handleReset}/>
                 <Articles articles={this.state.articles} isBlack={this.state.isBlack}/>
                 <Footer/>

@@ -39,11 +39,13 @@
 
 .gitIcon
 {
+    composes: contactsIcon;
     background: url("../../pic/github.svg");
 }
 
 .mailIcon
 {
+    composes: contactsIcon;
     background: url("../../pic/gmail.svg");
 }
 

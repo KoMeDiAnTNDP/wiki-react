@@ -1,5 +1,4 @@
 import React from 'react';
-import cn from 'classnames';
 
 import styles from './footer.module.css'
 
@@ -14,7 +13,7 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <span className={cn(styles.contactsIcon, styles.gitIcon)} />
+                        <span className={styles.gitIcon} />
                         Source code
                     </a>
                 </div>
@@ -24,7 +23,7 @@ export function Footer() {
                        target="_blank"
                        rel="noopener noreferrer"
                     >
-                        <span className={cn(styles.contactsIcon, styles.mailIcon)} />
+                        <span className={styles.mailIcon} />
                         Email
                     </a>
                 </div>

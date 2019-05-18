@@ -15,7 +15,3 @@ export interface IWiki {
     requestFailed: boolean;
     isBlack: boolean;
 }
-
-export interface ITheme {
-    isBlack: boolean;
-}

@@ -14,7 +14,6 @@ export function Articles({articles, isBlack}: IArticlesProps) {
     }
 
     const link = isBlack ? styles.titleLinkWhite : styles.titleLink;
-    console.log(link);
 
     return (
         <div className={styles.container}>
