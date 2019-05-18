@@ -10,26 +10,23 @@ import { WikiApi } from './api';
 
 export default class App extends Component {
     state: IWiki = {
-        query: '',
         articles: [],
         requestFailed: false,
         isBlack: false
     };
 
     handleFormSubmit = (query: IQuery) => {
-        const wikiApi = new WikiApi(query);
+        const wikiApi = new WikiApi(query).getWikiData();
 
-        wikiApi.getWikiData()
-            .then(articles => this.setState({
+        wikiApi.then(articles => this.setState({
                 query: query.query,
                 articles: articles
             }))
-            .catch(() => this.setState({requestFailed: true}))
+            .catch(() => this.setState({requestFailed: !this.state.requestFailed}))
     };
 
     handleReset = () => {
         this.setState({
-            query: '',
             articles: []
         })
     };
@@ -39,17 +36,21 @@ export default class App extends Component {
     };
 
     render() {
-        const moon = this.state.isBlack ? styles.themeMoonColor : styles.themeMoon;
-        const themeBlack =  this.state.isBlack ? styles.blackTheme : styles.wikiSearcher;
+        const {articles, requestFailed, isBlack} = this.state;
+
+        const moon = isBlack ? styles.moonColor : styles.moon;
+        const theme =  isBlack ? styles.wikiSearcher_theme_black: styles.wikiSearcher;
 
         return (
-            <div className={themeBlack}>
-                <header className={styles.wikiHead}>
+            <div className={theme}>
+                <header className={styles.head}>
                     <h1>Wiki Searcher</h1>
                 </header>
                 <div className={moon} onClick={this.handleThemeClick} />
                 <Form onSubmit={this.handleFormSubmit} onReset={this.handleReset}/>
-                <Articles articles={this.state.articles} isBlack={this.state.isBlack}/>
+                {
+                    !requestFailed ? <Articles articles={articles} isBlack={isBlack}/> : <h1>Failed</h1>
+                }
                 <Footer/>
             </div>
         )

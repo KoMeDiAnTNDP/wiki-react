@@ -1,7 +1,8 @@
 import React, {ChangeEvent, Component, FormEvent} from 'react';
-import cn from 'classnames';
 
 import { IQuery } from "../../types";
+import { ImageButton } from "../button";
+import { LanguageSelector } from "../languages";
 import iconSearch from "../../pic/search.svg";
 import iconRefresh from "../../pic/refresh.svg";
 import styles from './form.module.css'
@@ -17,7 +18,7 @@ export class Form extends Component<IFormProps, IQuery> {
         lang: 'en'
     };
 
-    handelLanguageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    handleLanguageChange = (event: ChangeEvent<HTMLInputElement>) => {
         this.setState({lang: event.target.value});
     };
 
@@ -36,36 +37,16 @@ export class Form extends Component<IFormProps, IQuery> {
     };
 
     render() {
+        const {query, lang} = this.state;
+
         return (
-            <form className={styles.form} onSubmit={this.handleSubmit} onReset={this.handleReset}>
-                <input className={styles.input} type="search" onChange={this.handleQueryChange} />
-                <button className={styles.button} disabled={!this.state.query} type="submit">
-                    <img className={styles.buttonIcon} src={iconSearch} alt="Search" title="Найти" />
-                </button>
-                <button className={styles.button} type="reset">
-                    <img className={styles.buttonIcon} src={iconRefresh} alt="Refresh" title="Отчистить" />
-                </button>
+            <form className={styles.searchForm} onSubmit={this.handleSubmit} onReset={this.handleReset}>
+                <input className={styles.searchForm__input} type="search" onChange={this.handleQueryChange} />
+                <ImageButton type={"submit"} disable={!query} src={iconSearch} alt={"Search"} title={"Найти"}/>
+                <ImageButton type={"reset"} disable={false} src={iconRefresh} alt={"Resfresh"} title={"Отчистить"}/>
                 <div className={styles.searchLanguage}>
-                    <input
-                        className={styles.radioLang}
-                        type="radio"
-                        name="lang"
-                        id="en"
-                        value="en"
-                        onChange={this.handelLanguageChange}
-                        checked={this.state.lang === 'en'}
-                    />
-                    <label className={cn(styles.labelLang, styles.iconEng)} htmlFor="en" />
-                    <input
-                        className={styles.radioLang}
-                        type="radio"
-                        name="lang"
-                        id="ru"
-                        value="ru"
-                        onChange={this.handelLanguageChange}
-                        checked={this.state.lang === 'ru'}
-                    />
-                    <label className={cn(styles.labelLang, styles.iconRu)} htmlFor="ru" />
+                    <LanguageSelector onChange={this.handleLanguageChange} lang="en" checked={lang === "en"}/>
+                    <LanguageSelector onChange={this.handleLanguageChange} lang="ru" checked={lang === "ru"}/>
                 </div>
             </form>
         )

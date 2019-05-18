@@ -4,37 +4,37 @@ import styles from './footer.module.css'
 
 export function Footer() {
     return (
-        <footer className={styles.wikiFooter}>
+        <footer className={styles.footer}>
             <div className={styles.contacts}>
-                <div className={styles.contactsGit}>
+                <div className={styles.contacts__git}>
                     <a
-                        className={styles.contactsLink}
+                        className={styles.contacts__link}
                         href="https://github.com/KoMeDiAnTNDP/wiki-react"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <span className={styles.gitIcon} />
+                        <span className={styles.contacts__gitIcon} />
                         Source code
                     </a>
                 </div>
-                <div className="contacts-mail">
-                    <a className={styles.contactsLink}
+                <div className="contacts__mail">
+                    <a className={styles.contacts__link}
                        href="mailto:nikitachikunov42@gmail.com"
                        target="_blank"
                        rel="noopener noreferrer"
                     >
-                        <span className={styles.mailIcon} />
+                        <span className={styles.contacts__mailIcon} />
                         Email
                     </a>
                 </div>
             </div>
             <div className={styles.wikiApi}>
-                <a className={styles.wikiApiLink}
+                <a className={styles.wikiApi__link}
                    href="https://www.mediawiki.org/wiki/API:Search"
                    target="_blank"
                    rel="noopener noreferrer"
                 >
-                    <span className={styles.wikiApiIcon} />
+                    <span className={styles.wikiApi__icon} />
                     API
                 </a>
             </div>

@@ -1,4 +1,4 @@
-.container
+.articles
 {
     display: flex;
     flex-direction: column;
@@ -6,29 +6,29 @@
     margin-bottom: 100px;
 }
 
-.wikiArticle
+.article
 {
     display: flex;
     flex-direction: column;
     margin: 30px auto 0;
     width: 50%;
-    animation: slide-up .4s ease;
+    animation: slide-up .4s forwards ease;
 }
 
-.titleLink
+.article__titleLink
 {
     color: #000;
     text-decoration: none;
 }
 
-.titleLinkWhite
+.article__titleLink_color_white
 {
     color: #fff;
     text-decoration: none;
 }
 
-.titleLink:hover,
-.titleLinkWhite:hover
+.article__titleLink:hover,
+.article__titleLink_color_white:hover
 {
     text-decoration: underline;
 }

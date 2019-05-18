@@ -1,0 +1,13 @@
+.searchForm__button
+{
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.searchFrom__buttonIcon
+{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    margin: auto;
+}

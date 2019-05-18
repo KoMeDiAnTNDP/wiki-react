@@ -6,13 +6,13 @@
     height: 100%;
 }
 
-.wikiHead
+.head
 {
     width: 100%;
     text-align: center;
 }
 
-.themeMoon
+.moon
 {
     display: flex;
     position: absolute;
@@ -21,15 +21,16 @@
     width: 30px;
     height: 30px;
     background: url("pic/moon.svg");
+    cursor: pointer;
 }
 
-.themeMoonColor
+.moonColor
 {
-    composes: themeMoon;
+    composes: moon;
     background: url("pic/moon-color.svg");
 }
 
-.blackTheme
+.wikiSearcher_theme_black
 {
     composes: wikiSearcher;
     background-color: black;

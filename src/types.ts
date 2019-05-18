@@ -10,7 +10,6 @@ export interface IQuery {
 }
 
 export interface IWiki {
-    query: string;
     articles: IArticleData[];
     requestFailed: boolean;
     isBlack: boolean;

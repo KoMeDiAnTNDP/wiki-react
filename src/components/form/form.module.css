@@ -1,27 +1,13 @@
-.form
+.searchForm
 {
     display: flex;
     margin: 0 auto;
     width: 50%;
 }
 
-.input
+.searchForm__input
 {
     flex-grow: 1;
-}
-
-.button
-{
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.buttonIcon
-{
-    width: 16px;
-    height: 16px;
-    display: flex;
-    margin: auto;
 }
 
 .searchLanguage
@@ -30,35 +16,4 @@
     position: absolute;
     top: 20px;
     left: 20px;
-}
-
-.radioLang
-{
-    display: none;
-}
-
-.labelLang
-{
-    display: block;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    opacity: .5;
-}
-
-.radioLang[id="en"]:checked ~ .iconEng,
-.radioLang[id="ru"]:checked ~ .iconRu
-{
-    opacity: 1;
-}
-
-.iconEng
-{
-    background: url("../../pic/united-kingdom.svg");
-    margin-right: 10px;
-}
-
-.iconRu
-{
-    background: url("../../pic/russia.svg");
 }

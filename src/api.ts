@@ -17,12 +17,15 @@ export class WikiApi {
             `utf8=1&exsentences=2&exlimit=10&exintro=1&explaintext=1&inprop=url&` +
             `gsrsearch=${this.query.query}&gsrnamespace=0&gsrlimit=10`;
 
-        console.log(api);
         return fetch(api)
             .then(response => response.json())
-            .then(data => Object.values(data.query.pages))
-            .catch(() => {
-                throw Error('Error')
+            .then(data => {
+                if (!data.hasOwnProperty('query')) {
+                    const url: string = `https://${this.query.lang}.wikipedia.org/wiki/${this.query.query}`;
+                    return [{title: this.query.query, extract: 'There are no such pages', fullurl: url}]
+                }
+
+                return Object.values(data.query.pages)
             });
     }
 }

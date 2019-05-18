@@ -13,16 +13,16 @@ export function Articles({articles, isBlack}: IArticlesProps) {
         return null;
     }
 
-    const link = isBlack ? styles.titleLinkWhite : styles.titleLink;
+    const linkClassName = isBlack ? styles.article__titleLink_color_white : styles.article__titleLink;
 
     return (
-        <div className={styles.container}>
+        <div className={styles.articles}>
             {
                 articles.map((article, index) => {
                     return (
-                        <article className={styles.wikiArticle} key={index} >
+                        <article className={styles.article} key={index} >
                             <h3>
-                                <a className={link}
+                                <a className={linkClassName}
                                    href={article.fullurl}
                                    target="_blank"
                                    rel="noopener noreferrer"

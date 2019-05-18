@@ -1,0 +1,31 @@
+.searchForm__radioLang
+{
+    display: none;
+}
+
+.searchForm__iconLang
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.searchForm__iconLang_opacity_full
+{
+    opacity: 1;
+}
+
+.searchForm__iconEng
+{
+    composes: searchForm__iconLang;
+    background: url("../../pic/united-kingdom.svg");
+    margin-right: 10px;
+}
+
+.searchForm__iconRu
+{
+    composes: searchForm__iconLang;
+    background: url("../../pic/russia.svg");
+}
