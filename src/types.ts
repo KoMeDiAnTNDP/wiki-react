@@ -7,10 +7,12 @@ export interface IArticleData {
 export interface IQuery {
     query: string;
     lang: string;
+    count: number;
 }
 
 export interface IWiki {
     articles: IArticleData[];
     requestFailed: boolean;
     isBlack: boolean;
+    time: string
 }

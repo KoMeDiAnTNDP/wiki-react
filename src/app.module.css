@@ -36,3 +36,9 @@
     background-color: black;
     color: white;
 }
+
+.time
+{
+    width: 50%;
+    margin: 10px auto 0;
+}

@@ -5,9 +5,16 @@
     width: 50%;
 }
 
-.searchForm__input
+.searchForm__inputQuery
 {
     flex-grow: 1;
+}
+
+.searchForm__inputCount
+{
+    width: 30px;
+    height: 16px;
+    margin-left: 5px;
 }
 
 .searchLanguage
@@ -16,4 +23,39 @@
     position: absolute;
     top: 20px;
     left: 20px;
+}
+
+.containerTooltip
+{
+    position: relative;
+}
+
+.containerTooltip__tooltip
+{
+    display: none;
+    position: absolute;
+    width: 130px;
+    top: 150%;
+    left: -127%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+
+.containerTooltip__tooltip:after
+{
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 47%;
+    width: 0;
+    height: 0;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid #000;
+}
+
+.searchForm__inputCount:hover ~ .containerTooltip__tooltip
+{
+    display: block;
 }

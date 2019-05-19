@@ -14,9 +14,10 @@ export function Articles({articles, isBlack}: IArticlesProps) {
     }
 
     const linkClassName = isBlack ? styles.article__titleLink_color_white : styles.article__titleLink;
+    const articlesTheme = isBlack ? styles.articles_theme_black : styles.articles
 
     return (
-        <div className={styles.articles}>
+        <div className={articlesTheme}>
             {
                 articles.map((article, index) => {
                     return (

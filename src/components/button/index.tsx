@@ -1,6 +1,5 @@
 import React from 'react';
-import buttonStyles from './button.module.css';
-
+import styles from './button.module.css';
 
 interface IImageButtonProps {
     type: string;
@@ -12,11 +11,11 @@ interface IImageButtonProps {
 
 export function ImageButton({type, disable, src, alt, title}: IImageButtonProps) {
     return (
-        <button className={buttonStyles.searchForm__button}
+        <button className={styles.searchForm__button}
                 disabled={disable}
                 type={type === 'submit' ? "submit" : "reset"}
         >
-            <img className={buttonStyles.searchFrom__buttonIcon} src={src} alt={alt} title={title}/>
+            <img className={styles.searchFrom__buttonIcon} src={src} alt={alt} title={title}/>
         </button>
     )
 }

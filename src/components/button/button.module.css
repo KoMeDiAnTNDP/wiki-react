@@ -2,6 +2,12 @@
 {
     margin-left: 5px;
     cursor: pointer;
+
+}
+
+.searchForm__button:disabled
+{
+    opacity: .5;
 }
 
 .searchFrom__buttonIcon
