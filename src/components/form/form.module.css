@@ -57,5 +57,5 @@
 
 .searchForm__inputCount:hover ~ .containerTooltip__tooltip
 {
-    display: block;
+    display: flex;
 }
