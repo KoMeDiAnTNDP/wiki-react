@@ -15,8 +15,6 @@
 
 .article
 {
-    display: flex;
-    flex-direction: column;
     margin: 30px auto 0;
     width: 50%;
     animation: slide-up .4s forwards ease;
