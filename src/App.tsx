@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 import styles from './app.module.css';
 import { Form } from "./components/form";
-import { Articles } from "./components/articles";
 import { Footer } from "./components/footer";
 import { IWiki,  IQuery } from "./types";
 import { WikiApi } from './api';
+import {Result} from "./components/result";
 
 
 export default class App extends Component {
@@ -13,7 +13,8 @@ export default class App extends Component {
         articles: [],
         requestFailed: false,
         isBlack: false,
-        time: ''
+        time: '',
+        reset: false
     };
 
     handleFormSubmit = (query: IQuery) => {
@@ -25,42 +26,53 @@ export default class App extends Component {
 
         this.setState({time: (end - start).toFixed(3)});
 
-        wikiApi.then(articles => this.setState({
+        wikiApi.then(articles =>
+        {
+            if (this.state.articles.length !== 0) {
+                this.setState({articles: []});
+            }
+
+            this.setState({
                 query: query.query,
                 articles: articles
-            }))
+            })
+        })
             .catch(() => this.setState({requestFailed: true}))
     };
 
     handleReset = () => {
         this.setState({
-            articles: [],
-            time: ''
+            reset: true
+        }, () => {
+            setTimeout(() => {
+                this.setState({
+                    articles: [],
+                    time: '',
+                    reset: false
+                })}, 400)
         })
     };
 
     handleThemeClick = () => {
         this.setState({isBlack: !this.state.isBlack});
+
     };
 
     render() {
-        const {articles, requestFailed, isBlack, time} = this.state;
+        const {articles, requestFailed, isBlack, time, reset} = this.state;
 
-        const moon = isBlack ? styles.moonColor : styles.moon;
-        const theme =  isBlack ? styles.wikiSearcher_theme_black: styles.wikiSearcher;
+        const moonClassName = isBlack ? styles.moonColor : styles.moon;
+        const themeClassName =  isBlack ? styles.wikiSearcher_theme_black: styles.wikiSearcher;
 
         return (
-            <div className={theme}>
+            <div className={themeClassName}>
                 <header className={styles.head}>
                     <h1>Wiki Searcher</h1>
                 </header>
-                <div className={moon} onClick={this.handleThemeClick} />
+                <div className={moonClassName} onClick={this.handleThemeClick} />
                 <Form onSubmit={this.handleFormSubmit} onReset={this.handleReset} disabled={articles.length === 0}/>
                 {
-                    time && <span className={styles.time}>Время запроса: {time}сек</span>
-                }
-                {
-                    !requestFailed ? <Articles articles={articles} isBlack={isBlack}/> : <h1>Failed</h1>
+                    !requestFailed ? <Result articles={articles} isBlack={isBlack} reset={reset} time={time}/> : <h1>Failed</h1>
                 }
                 <Footer/>
             </div>

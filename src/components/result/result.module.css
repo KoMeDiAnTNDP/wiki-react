@@ -1,0 +1,30 @@
+.searchResult
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.searchResult__time
+{
+    width: 50%;
+    margin: 10px auto 0;
+    animation: show .4s forwards ease;
+}
+
+.searchResult__time_reset
+{
+    composes: searchResult__time;
+    animation: show .4s forwards ease reverse;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

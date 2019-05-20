@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
+    transition: all 1s ease;
 }
 
 .head
@@ -34,10 +36,5 @@
     composes: wikiSearcher;
     background-color: black;
     color: white;
-}
-
-.time
-{
-    width: 50%;
-    margin: 10px auto 0;
+    transition: all 1s ease;
 }

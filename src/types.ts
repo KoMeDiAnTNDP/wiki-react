@@ -14,5 +14,6 @@ export interface IWiki {
     articles: IArticleData[];
     requestFailed: boolean;
     isBlack: boolean;
-    time: string
+    time: string;
+    reset: boolean;
 }

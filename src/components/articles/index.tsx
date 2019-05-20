@@ -6,18 +6,20 @@ import styles from './articles.module.css';
 interface IArticlesProps {
     articles: IArticleData[];
     isBlack: boolean;
+    reset: boolean;
+    time: string;
 }
 
-export function Articles({articles, isBlack}: IArticlesProps) {
+export function Articles({articles, isBlack, reset, time}: IArticlesProps) {
     if (articles.length === 0) {
         return null;
     }
 
+    const articlesClassName = reset ? styles.articles_reset : styles.articles;
     const linkClassName = isBlack ? styles.article__titleLink_color_white : styles.article__titleLink;
-    const articlesTheme = isBlack ? styles.articles_theme_black : styles.articles;
 
     return (
-        <div className={articlesTheme}>
+        <div className={articlesClassName}>
             {
                 articles.map((article, index) => {
                     return (
