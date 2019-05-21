@@ -11,7 +11,7 @@
 .searchResult__time
 {
     width: 50%;
-    margin: 10px auto 0;
+    margin: 10px auto;
     animation: show .4s forwards ease;
 }
 
@@ -28,5 +28,17 @@
 
     100% {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .searchResult__time
+    {
+        width: 90%;
+    }
+
+    .searchResult
+    {
+        margin-bottom: 52px;
     }
 }

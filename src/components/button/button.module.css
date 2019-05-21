@@ -2,12 +2,17 @@
 {
     margin-left: 5px;
     cursor: pointer;
-
+    border-radius: 8px;
 }
 
 .searchForm__button:disabled
 {
     opacity: .5;
+}
+
+.searchForm__button:focus
+{
+    outline: none;
 }
 
 .searchFrom__buttonIcon
@@ -16,4 +21,14 @@
     height: 16px;
     display: flex;
     margin: auto;
+}
+
+@media screen and (max-width: 730px) {
+    .searchFrom__buttonIcon
+    {
+        display: flex;
+        width: 18px;
+        height: 18px;
+        margin: auto;
+    }
 }

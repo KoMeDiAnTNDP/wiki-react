@@ -18,6 +18,11 @@ export default class App extends Component {
     };
 
     handleFormSubmit = (query: IQuery) => {
+        if (query.count === 0) {
+            alert('Since you did not enter the required number of articles, it was set to 10')
+            query.count = 10;
+        }
+
         const start = new Date().getTime() / 1000;
         const wikiApi = new WikiApi(query).getWikiData();
         const end = new Date().getTime() / 1000;

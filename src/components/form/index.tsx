@@ -20,6 +20,18 @@ export class Form extends Component<IFormProps, IQuery> {
         count: 0
     };
 
+    checkLanguage = (query: string, lang: string): boolean => {
+        switch (lang) {
+            case 'en':
+                return /[a-zA-z]/.test(query);
+            case 'ru':
+                return /[а-яА-ЯёЁ]/.test(query);
+            default:
+                alert("Unsupported language");
+                return false;
+        }
+    };
+
     handleLanguageChange = (event: ChangeEvent<HTMLInputElement>) => {
         this.setState({lang: event.target.value});
     };
@@ -30,11 +42,22 @@ export class Form extends Component<IFormProps, IQuery> {
 
     handleCountChange = (event: ChangeEvent<HTMLInputElement>) => {
         const count = event.target.validity.valid ? Number(event.target.value) : 0;
-        this.setState({count: count})
+
+        if (count > 20) {
+            alert("Count of articles can not be more than 20");
+            this.setState({count: 0});
+        } else {
+            this.setState({count: count})
+        }
     };
 
     handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        if (!this.checkLanguage(this.state.query, this.state.lang)) {
+            alert('The selected language does not match the entered one, you may not find what you are looking for.')
+        }
+
         this.props.onSubmit(this.state);
         this.setState({query: ''});
     };
@@ -45,7 +68,8 @@ export class Form extends Component<IFormProps, IQuery> {
 
     render() {
         const {query, lang, count} = this.state;
-        const isDisabled = !query || (count < 0 || count > 20);
+        const validCount = count < 0 || count > 20;
+        const isDisabled = !query || validCount;
         const curCount = count === 0 ? '' : count;
 
         return (
@@ -61,7 +85,9 @@ export class Form extends Component<IFormProps, IQuery> {
                         type="text" onChange={this.handleCountChange}
                         pattern="[0-9]*" value={curCount}
                     />
-                    <span className={styles.containerTooltip__tooltip}>Количество статей</span>
+                    <div className={styles.containerTooltip__tooltip}>
+                        <span className={styles.tooltip__text}>Количество статей</span>
+                    </div>
                 </div>
                 <ImageButton type={"submit"} disable={isDisabled} src={iconSearch} alt={"Search"} title={"Найти"}/>
                 <ImageButton type={"reset"} disable={this.props.disabled} src={iconRefresh} alt={"Resfresh"} title={"Отчистить"}/>

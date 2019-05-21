@@ -63,3 +63,10 @@
     text-decoration: none;
     color: #000;
 }
+
+@media screen and (max-width: 730px) {
+    .footer
+    {
+        font-size: 13px;
+    }
+}
