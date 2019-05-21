@@ -18,7 +18,7 @@ export class Instruction extends Component<IInstructionProps, IInstructionState>
 
     handleClick = () => {
         this.setState({isClick: !this.state.isClick}, () => {
-            setTimeout(this.props.onClick, 1000)
+            setTimeout(this.props.onClick, 400)
         });
     };
 

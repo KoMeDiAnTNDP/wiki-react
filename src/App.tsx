@@ -65,7 +65,8 @@ export default class App extends Component {
     };
 
     handleInstructionClick = () => {
-        this.setState({instruction: !this.state.showInstruction})
+
+        this.setState({showInstruction: !this.state.showInstruction})
     };
 
     render() {
