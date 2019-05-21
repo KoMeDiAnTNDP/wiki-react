@@ -67,7 +67,7 @@ export default class App extends Component {
         return (
             <div className={themeClassName}>
                 <header className={styles.head}>
-                    <h1>Wiki Searcher</h1>
+                    <h1 className={styles.head__title}>Wiki Searcher</h1>
                 </header>
                 <div className={moonClassName} onClick={this.handleThemeClick} />
                 <Form onSubmit={this.handleFormSubmit} onReset={this.handleReset} disabled={articles.length === 0}/>

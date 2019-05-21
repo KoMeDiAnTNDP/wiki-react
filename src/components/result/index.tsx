@@ -12,18 +12,18 @@ interface IResult {
 }
 
 export function Result({articles, isBlack, reset, time}: IResult) {
-    const timeClassName = reset ? styles.searchResult__time_reset : styles.searchResult__time;
-
     if (articles.length === 0) {
         return null;
     }
+
+    const timeClassName = reset ? styles.searchResult__time_reset : styles.searchResult__time;
 
     return (
         <div className={styles.searchResult}>
             {
                 time && <span className={timeClassName}>Время запроса: {time}сек</span>
             }
-            <Articles articles={articles} isBlack={isBlack} reset={reset} time={time}/>
+            <Articles articles={articles} isBlack={isBlack} reset={reset}/>
         </div>
     )
 }

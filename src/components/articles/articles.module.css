@@ -1,14 +1,13 @@
 .articles
 {
     display: flex;
-    position: relative;
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     height: 100%;
-    margin-bottom: 100px;
+    margin: 0 auto;
+    padding-bottom: 20px;
     overflow-y: scroll;
 
-    opacity: 0;
     animation: slide-up .4s forwards ease;
 }
 
@@ -25,8 +24,14 @@
 
 .article
 {
-    margin: 30px auto 0;
-    width: 50%;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.article_first
+{
+    composes: article;
+    margin-top: 0;
 }
 
 .article__titleLink

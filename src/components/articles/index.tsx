@@ -7,10 +7,9 @@ interface IArticlesProps {
     articles: IArticleData[];
     isBlack: boolean;
     reset: boolean;
-    time: string;
 }
 
-export function Articles({articles, isBlack, reset, time}: IArticlesProps) {
+export function Articles({articles, isBlack, reset}: IArticlesProps) {
     if (articles.length === 0) {
         return null;
     }
@@ -22,8 +21,10 @@ export function Articles({articles, isBlack, reset, time}: IArticlesProps) {
         <div className={articlesClassName}>
             {
                 articles.map((article, index) => {
+                    const articleClassName = index === 0 ? styles.article_first : styles.article;
+
                     return (
-                        <article className={styles.article} key={index} >
+                        <article className={articleClassName} key={index} >
                             <h3>
                                 <a className={linkClassName}
                                    href={article.fullurl}

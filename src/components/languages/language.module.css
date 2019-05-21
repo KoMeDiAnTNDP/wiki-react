@@ -29,3 +29,11 @@
     composes: searchForm__iconLang;
     background: url("../../pic/russia.svg");
 }
+
+@media screen and (max-width: 730px){
+    .searchForm__iconLang
+    {
+        width: 25px;
+        height: 25px;
+    }
+}

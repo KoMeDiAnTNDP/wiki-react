@@ -1,9 +1,11 @@
 .searchResult
 {
     display: flex;
+    position: relative;
     flex-direction: column;
     width: 100%;
     height: 100%;
+    margin-bottom: 58px;
 }
 
 .searchResult__time
