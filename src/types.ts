@@ -16,4 +16,5 @@ export interface IWiki {
     isBlack: boolean;
     time: string;
     reset: boolean;
+    showInstruction: boolean;
 }

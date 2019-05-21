@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 
 import styles from './app.module.css';
 import { Form } from "./components/form";
+import { Instruction } from "./components/instruction";
 import { Footer } from "./components/footer";
 import { IWiki,  IQuery } from "./types";
 import { WikiApi } from './api';
-import {Result} from "./components/result";
+import { Result } from "./components/result";
 
 
 export default class App extends Component {
@@ -14,7 +15,8 @@ export default class App extends Component {
         requestFailed: false,
         isBlack: false,
         time: '',
-        reset: false
+        reset: false,
+        showInstruction: true
     };
 
     handleFormSubmit = (query: IQuery) => {
@@ -60,21 +62,29 @@ export default class App extends Component {
 
     handleThemeClick = () => {
         this.setState({isBlack: !this.state.isBlack});
+    };
 
+    handleInstructionClick = () => {
+        this.setState({instruction: !this.state.showInstruction})
     };
 
     render() {
-        const {articles, requestFailed, isBlack, time, reset} = this.state;
+        const {articles, requestFailed, isBlack, time, reset, showInstruction} = this.state;
 
+        const themeClassName =  isBlack ? styles.wikiSearcher_theme_black : styles.wikiSearcher;
+        const hintClassName = isBlack ? styles.function__hint_theme_black : styles.function__hint;
         const moonClassName = isBlack ? styles.moonColor : styles.moon;
-        const themeClassName =  isBlack ? styles.wikiSearcher_theme_black: styles.wikiSearcher;
 
         return (
             <div className={themeClassName}>
                 <header className={styles.head}>
                     <h1 className={styles.head__title}>Wiki Searcher</h1>
                 </header>
-                <div className={moonClassName} onClick={this.handleThemeClick} />
+                { showInstruction && <Instruction onClick={this.handleInstructionClick}/> }
+                <div className={styles.function}>
+                    <div className={hintClassName} onClick={this.handleInstructionClick}/>
+                    <div className={moonClassName} onClick={this.handleThemeClick} />
+                </div>
                 <Form onSubmit={this.handleFormSubmit} onReset={this.handleReset} disabled={articles.length === 0}/>
                 {
                     !requestFailed ? <Result articles={articles} isBlack={isBlack} reset={reset} time={time}/> : <h1>Failed</h1>

@@ -22,19 +22,44 @@
 .moon
 {
     display: flex;
-    position: absolute;
-    top: 20px;
-    right: 20px;
     width: 30px;
     height: 30px;
     background: url("pic/moon.svg");
     cursor: pointer;
+    transition: all .4s ease;
 }
 
 .moonColor
 {
     composes: moon;
     background: url("pic/moon-color.svg");
+}
+
+.function
+{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.function__hint
+{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-size: 30px 30px;
+    background-image: url("pic/hint.svg");
+    cursor: pointer;
+
+    transition: all .4s ease;
+}
+
+.function__hint_theme_black
+{
+    composes: function__hint;
+    background-image: url("pic/hint-color.svg");
 }
 
 .wikiSearcher_theme_black
@@ -55,5 +80,12 @@
     {
         width: 25px;
         height: 25px;
+    }
+
+    .function__hint
+    {
+        width: 25px;
+        height: 25px;
+        background-size: 25px 25px;
     }
 }

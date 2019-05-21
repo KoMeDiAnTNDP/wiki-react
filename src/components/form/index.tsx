@@ -77,13 +77,13 @@ export class Form extends Component<IFormProps, IQuery> {
                 <input
                     className={styles.searchForm__inputQuery}
                     type="search" onChange={this.handleQueryChange}
-                    placeholder="Ваш запрос"
+                    placeholder="Введите запрос"
                 />
                 <div className={styles.containerTooltip}>
                     <input
                         className={styles.searchForm__inputCount}
                         type="text" onChange={this.handleCountChange}
-                        pattern="[0-9]*" value={curCount}
+                        pattern="[0-9]*" value={curCount === '' ? 10 : curCount}
                     />
                     <div className={styles.containerTooltip__tooltip}>
                         <span className={styles.tooltip__text}>Количество статей</span>

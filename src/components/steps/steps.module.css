@@ -1,0 +1,144 @@
+.instruction__plan
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.plan__item
+{
+    display: flex;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.plan__languagesIcons
+{
+    display: flex;
+    margin-right: 5px;
+}
+
+.plan__languageIcon
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.plan__enIcon
+{
+    composes: plan__languageIcon;
+    background: url("../../pic/united-kingdom.svg");
+    margin-right: 10px;
+}
+
+.plan__ruIcon
+{
+    composes: plan__languageIcon;
+    background: url("../../pic/russia.svg");
+}
+
+.plan__inputQuery
+{
+    width: 110px;
+    padding-left: 10px;
+    margin-right: 5px;
+    border-radius: 8px;
+    border: 1px solid #dfe1e5;
+}
+
+.plan__inputCount
+{
+    width: 32px;
+    text-align: center;
+    margin-right: 5px;
+    border-radius: 8px;
+    border: 1px solid #dfe1e5;
+}
+
+.plan__resetButton
+{
+    border-radius: 8px;
+    margin-right: 5px;
+}
+
+.resetButton__icon
+{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    margin: auto;
+}
+
+.plan__functions
+{
+    display: flex;
+    margin-right: 5px;
+}
+
+.plan__functionIcon
+{
+    display: flex;
+    width: 30px;
+    height: 30px;
+}
+
+.plan__hint
+{
+    composes: plan__functionIcon;
+    margin-right: 10px;
+    background-size: 30px 30px;
+    background-image: url("../../pic/hint-color.svg");
+}
+
+.plan__theme
+{
+    composes: plan__functionIcon;
+    background: url("../../pic/moon-color.svg");
+}
+
+.plan__dash
+{
+    display: flex;
+    align-items: center;
+}
+
+.plan__text
+{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.plan__text_required
+{
+    color: #f22613;
+}
+
+.plan__text_optional
+{
+    color: #1e8bc3;
+}
+
+@media screen and (max-width: 730px){
+    .plan__inputCount
+    {
+        height: 22px;
+    }
+
+    .plan__languageIcon,
+    .plan__functionIcon
+    {
+        width: 25px;
+        height: 25px;
+    }
+
+    .plan__hint
+    {
+        background-size: 25px 25px;
+    }
+
+    .plan__text
+    {
+        font-size: 13px;
+    }
+}
