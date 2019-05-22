@@ -8,6 +8,13 @@
     bottom: 0;
 }
 
+.footer_theme_black
+{
+    composes: footer;
+    border-top: #2e2e2e;
+    background-color: #202020;
+}
+
 .contacts
 {
     display: flex;
@@ -62,6 +69,16 @@
     display: flex;
     text-decoration: none;
     color: #000;
+}
+
+.contacts__link_theme_black,
+.wikiApi__link_theme_black,
+.contacts__link_theme_black:visited,
+.wikiApi__link_theme_black:visited
+{
+    display: flex;
+    text-decoration: none;
+    color: #fff;
 }
 
 @media screen and (max-width: 730px) {

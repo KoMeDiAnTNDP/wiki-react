@@ -90,7 +90,7 @@ export default class App extends Component {
                 {
                     !requestFailed ? <Result articles={articles} isBlack={isBlack} reset={reset} time={time}/> : <h1>Failed</h1>
                 }
-                <Footer/>
+                <Footer isBlack={isBlack}/>
             </div>
         )
     }

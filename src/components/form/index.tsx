@@ -17,7 +17,7 @@ export class Form extends Component<IFormProps, IQuery> {
     state: IQuery = {
         query: '',
         lang: 'en',
-        count: 0
+        count: 10
     };
 
     checkLanguage = (query: string, lang: string): boolean => {
@@ -77,13 +77,13 @@ export class Form extends Component<IFormProps, IQuery> {
                 <input
                     className={styles.searchForm__inputQuery}
                     type="search" onChange={this.handleQueryChange}
-                    placeholder="Введите запрос"
+                    placeholder="Введите запрос" value={query}
                 />
                 <div className={styles.containerTooltip}>
                     <input
                         className={styles.searchForm__inputCount}
                         type="text" onChange={this.handleCountChange}
-                        pattern="[0-9]*" value={curCount === '' ? 10 : curCount}
+                        pattern="[0-9]*" value={curCount}
                     />
                     <div className={styles.containerTooltip__tooltip}>
                         <span className={styles.tooltip__text}>Количество статей</span>
