@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import styles from './steps.module.css';
 import resetIcon from '../../pic/refresh.svg';
+import searchIcon from '../../pic/search.svg';
 
 export function Plan() {
     const requiredText = cn(styles.plan__text_required, styles.plan__text);
@@ -33,6 +34,13 @@ export function Plan() {
                 <span className={requiredText}>Введите ваш запрос</span>
             </div>
             <div className={styles.plan__item}>
+                <button className={styles.plan__button} disabled>
+                    <img className={styles.button__icon} src={searchIcon} alt="Search" title="Найти"/>
+                </button>
+                <span className={requiredDash}>&mdash; </span>
+                <span className={requiredText}>Поиск по выашему запросу</span>
+            </div>
+            <div className={styles.plan__item}>
                 <input className={styles.plan__inputCount} value="10" disabled/>
                 <span className={optionalDash}>&mdash; </span>
                 <span className={optionalText}>
@@ -40,8 +48,8 @@ export function Plan() {
                 </span>
             </div>
             <div className={styles.plan__item}>
-                <button className={styles.plan__resetButton} disabled>
-                    <img className={styles.resetButton__icon} src={resetIcon} alt="Reset" title="Отчистить"/>
+                <button className={styles.plan__button} disabled>
+                    <img className={styles.button__icon} src={resetIcon} alt="Reset" title="Отчистить"/>
                 </button>
                 <span className={optionalDash}>&mdash; </span>
                 <span className={optionalText}>Убрать найденные статьи</span>

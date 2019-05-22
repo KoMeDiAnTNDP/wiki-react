@@ -82,6 +82,12 @@
     border: 2px solid #000;
 }
 
+.containerTooltip__tooltip_theme_black
+{
+    composes: containerTooltip__tooltip;
+    border: 2px solid #fff;
+}
+
 .tooltip__text
 {
     margin: 0 auto;
@@ -98,6 +104,19 @@
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     border-bottom: 5px solid #000;
+}
+
+.containerTooltip__tooltip_theme_black:after
+{
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 47%;
+    width: 0;
+    height: 0;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid #fff;
 }
 
 .searchForm__inputCount:hover ~ .containerTooltip__tooltip

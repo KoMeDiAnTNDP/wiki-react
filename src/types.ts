@@ -4,13 +4,19 @@ export interface IArticleData {
     fullurl: string;
 }
 
-export interface IQuery {
+export interface IForm {
     query: string;
     lang: string;
-    count: number;
+    count: string;
+    formErrors: IErrors;
     countValid: boolean;
     languageValid: boolean;
     formValid: boolean;
+}
+
+export interface IErrors {
+    lang: string;
+    count: string;
 }
 
 export interface IWiki {

@@ -55,13 +55,13 @@
     border: 1px solid #dfe1e5;
 }
 
-.plan__resetButton
+.plan__button
 {
     border-radius: 8px;
     margin-right: 5px;
 }
 
-.resetButton__icon
+.button__icon
 {
     width: 16px;
     height: 16px;

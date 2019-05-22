@@ -1,14 +1,14 @@
-import { IQuery } from "./types";
+import { IForm } from "./types";
 
 export class WikiApi {
     lang: string = '';
     query: string = '';
-    count: number = 0;
+    count: string = '';
 
-    constructor(query: IQuery) {
+    constructor(query: IForm) {
         this.lang = query.lang;
         this.query = query.query;
-        this.count = query.count === 0 ? 10 : query.count;
+        this.count = query.count === '' ? '10' : query.count;
     }
 
     getWikiData() {

@@ -4,7 +4,7 @@ import styles from './app.module.css';
 import { Form } from "./components/form";
 import { Instruction } from "./components/instruction";
 import { Footer } from "./components/footer";
-import { IWiki,  IQuery } from "./types";
+import { IWiki,  IForm } from "./types";
 import { WikiApi } from './api';
 import { Result } from "./components/result";
 
@@ -19,10 +19,10 @@ export default class App extends Component {
         showInstruction: true
     };
 
-    handleFormSubmit = (query: IQuery) => {
-        if (query.count === 0) {
+    handleFormSubmit = (query: IForm) => {
+        if (query.count === '') {
             alert('Since you did not enter the required number of articles, it was set to 10')
-            query.count = 10;
+            query.count = '10';
         }
 
         const start = new Date().getTime() / 1000;
@@ -65,7 +65,6 @@ export default class App extends Component {
     };
 
     handleInstructionClick = () => {
-
         this.setState({showInstruction: !this.state.showInstruction})
     };
 
@@ -86,7 +85,12 @@ export default class App extends Component {
                     <div className={hintClassName} onClick={this.handleInstructionClick}/>
                     <div className={moonClassName} onClick={this.handleThemeClick} />
                 </div>
-                <Form onSubmit={this.handleFormSubmit} onReset={this.handleReset} disabled={articles.length === 0}/>
+                <Form
+                    onSubmit={this.handleFormSubmit}
+                    onReset={this.handleReset}
+                    disabled={articles.length === 0}
+                    isBlack={isBlack}
+                />
                 {
                     !requestFailed ? <Result articles={articles} isBlack={isBlack} reset={reset} time={time}/> : <h1>Failed</h1>
                 }
