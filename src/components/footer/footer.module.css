@@ -6,6 +6,7 @@
     background-color: #f8f8f8;
     position: fixed;
     bottom: 0;
+    transition: all 1s ease;
 }
 
 .footer_theme_black
@@ -13,6 +14,7 @@
     composes: footer;
     border-top: #2e2e2e;
     background-color: #202020;
+    transition: all 1s ease;
 }
 
 .contacts
