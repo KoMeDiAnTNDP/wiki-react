@@ -8,6 +8,9 @@ export interface IQuery {
     query: string;
     lang: string;
     count: number;
+    countValid: boolean;
+    languageValid: boolean;
+    formValid: boolean;
 }
 
 export interface IWiki {

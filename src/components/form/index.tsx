@@ -17,7 +17,10 @@ export class Form extends Component<IFormProps, IQuery> {
     state: IQuery = {
         query: '',
         lang: 'en',
-        count: 10
+        count: 10,
+        countValid: false,
+        languageValid: false,
+        formValid: false
     };
 
     checkLanguage = (query: string, lang: string): boolean => {
@@ -45,7 +48,7 @@ export class Form extends Component<IFormProps, IQuery> {
 
         if (count > 20) {
             alert("Count of articles can not be more than 20");
-            this.setState({count: 0});
+            this.setState({count: 10});
         } else {
             this.setState({count: count})
         }
