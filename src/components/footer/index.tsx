@@ -10,6 +10,7 @@ export function Footer({isBlack}: IFooter) {
     const footerTheme = isBlack ? styles.footer_theme_black : styles.footer;
     const contactsLinkTheme = isBlack ? styles.contacts__link_theme_black : styles.contacts__link;
     const wikiLinkTheme = isBlack ? styles.wikiApi__link_theme_black : styles.wikiApi__link;
+    const iconGitTheme = isBlack ? styles.contacts__gitIcon_theme_black : styles.contacts__gitIcon;
 
     return (
         <footer className={footerTheme}>
@@ -21,7 +22,7 @@ export function Footer({isBlack}: IFooter) {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <span className={styles.contacts__gitIcon} />
+                        <span className={iconGitTheme} />
                         Source code
                     </a>
                 </div>
