@@ -137,6 +137,11 @@
         background-size: 25px 25px;
     }
 
+    .plan__inputQuery
+    {
+        width: 130px;
+    }
+
     .plan__text
     {
         font-size: 13px;

@@ -8,15 +8,13 @@ export interface IForm {
     query: string;
     lang: string;
     count: string;
-    formErrors: IErrors;
     countValid: boolean;
     languageValid: boolean;
-    formValid: boolean;
 }
 
 export interface IErrors {
-    lang: string;
-    count: string;
+    error: string;
+    message: string;
 }
 
 export interface IWiki {
