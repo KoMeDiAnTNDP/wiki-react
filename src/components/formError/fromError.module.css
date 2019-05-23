@@ -4,7 +4,7 @@
     position: absolute;
     width: 200px;
     top: -50px;
-    right: 13.7%;
+    left: -245%;
     color: #a94442;
     border: 2px solid #a94442;
     border-radius: 8px;
@@ -34,7 +34,7 @@
     {
         width: 160px;
         top: -45px;
-        right: 13%;
+        left: -190%;
     }
 
     .searchForm__errorCount
@@ -57,7 +57,7 @@
         display: flex;
         width: 160px;
         top: 35px;
-        right: 18px;
+        left: -200%;
     }
 
     .searchForm__errorCountContainer:after
@@ -67,6 +67,7 @@
         height: 0;
         position: absolute;
         top: -14px;
+        left: 45%;
         border-top: 7px solid transparent;
         border-bottom: 7px solid #a94442;
     }

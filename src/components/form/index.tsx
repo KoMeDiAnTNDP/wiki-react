@@ -91,13 +91,12 @@ export class Form extends Component<IFormProps, IForm> {
         const {isBlack, disabled} = this.props;
 
         const isDisabled = !query || !countValid;
-        const tooltipTheme = isBlack ? styles.containerTooltip__tooltip_theme_black : styles.containerTooltip__tooltip;
         const inputTheme = countValid ? styles.searchForm__inputCount : styles.searchForm__inputCount_error;
 
         return (
             <form className={styles.searchForm} onSubmit={this.handleSubmit} onReset={this.handleReset}>
                 <div className={styles.searchForm__errors}>
-                    {!countValid && <CountErrors error="count" message={"Значение должно быть больше 0 и меньше 21"}/>}
+
                 </div>
                 <div className={styles.searchForm__formContainer}>
                     <input
@@ -105,15 +104,18 @@ export class Form extends Component<IFormProps, IForm> {
                         type="search" onChange={this.handleQueryChange}
                         placeholder="Введите запрос" value={query}
                     />
-                    <div className={styles.containerTooltip}>
+                    <div className={styles.searchForm__inputCountContainer}>
                         <input
                             className={inputTheme}
                             type="text" onChange={this.handleCountChange}
                             pattern="[0-9]*" value={count}
                         />
-                        <div className={tooltipTheme}>
-                            <span className={styles.tooltip__text}>Количество статей</span>
-                        </div>
+                        {
+                            !countValid && <CountErrors
+                                error="count"
+                                message={"Значение должно быть больше 0 и меньше 21"}
+                            />
+                        }
                     </div>
                     <ImageButton type={"submit"} disable={isDisabled} src={iconSearch} alt={"Search"} title={"Найти"}/>
                     <ImageButton type={"reset"} disable={disabled} src={iconRefresh} alt={"Resfresh"} title={"Отчистить"}/>
