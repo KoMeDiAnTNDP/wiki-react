@@ -28,7 +28,7 @@
 @media screen and (max-width: 730px){
     .searchForm__button
     {
-        width: 15%;
+        width: 60px;
         padding: 0;
     }
 }
