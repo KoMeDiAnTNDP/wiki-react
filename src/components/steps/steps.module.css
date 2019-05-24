@@ -39,11 +39,16 @@
 
 .plan__inputQuery
 {
-    width: 110px;
+    width: 115px;
     padding-left: 10px;
     margin-right: 5px;
     border-radius: 8px;
     border: 1px solid #dfe1e5;
+}
+
+.plan__inputQuery::placeholder
+{
+    font-size: 15px;
 }
 
 .plan__inputCount
@@ -139,7 +144,7 @@
 
     .plan__inputQuery
     {
-        width: 130px;
+        width: 120px;
     }
 
     .plan__text

@@ -6,8 +6,9 @@
 
 .searchForm__errors
 {
-    position: relative;
     width: 100%;
+    height: 22px;
+    position: relative;
 }
 
 .searchForm__formContainer
@@ -90,11 +91,12 @@
 
     .searchForm__inputQuery
     {
-        width: 70%;
+        width: 65%;
     }
 
     .searchForm__inputCount
     {
+        width: 32px;
         height: 21px;
     }
 }

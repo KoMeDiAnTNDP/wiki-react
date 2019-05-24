@@ -12,8 +12,8 @@
 .footer_theme_black
 {
     composes: footer;
-    border-top: 2px solid #202020;
-    background-color: #0f0f0f;
+    border-top: 2px solid #181818;
+    background-color: #202020;
     transition: all 1s ease;
 }
 
@@ -79,7 +79,7 @@
 {
     display: flex;
     text-decoration: none;
-    color: #000;
+    color: #202020;
 }
 
 .contacts__link_theme_black,
@@ -89,7 +89,7 @@
 {
     display: flex;
     text-decoration: none;
-    color: #fff;
+    color: #e0e0e0;
 }
 
 @media screen and (max-width: 730px) {

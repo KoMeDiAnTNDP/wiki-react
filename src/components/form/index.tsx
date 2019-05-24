@@ -1,18 +1,17 @@
 import React, {ChangeEvent, Component, FormEvent} from 'react';
 
-import { IForm } from "../../types";
+import {IForm} from "../../types";
 import { ImageButton } from "../button";
 import { LanguageSelector } from "../languages";
 import iconSearch from "../../pic/search.svg";
 import iconRefresh from "../../pic/refresh.svg";
 import styles from './form.module.css';
-import {CountErrors} from "../formError";
+import {CountError} from "../formError";
 
 interface IFormProps {
     onSubmit(query: IForm): void;
     onReset(): void;
     disabled: boolean;
-    isBlack: boolean;
 }
 
 export class Form extends Component<IFormProps, IForm> {
@@ -21,7 +20,7 @@ export class Form extends Component<IFormProps, IForm> {
         lang: 'en',
         count: '10',
         countValid: true,
-        languageValid: false
+        languageValid: true
     };
 
     validField(fieldName: string, value: string) {
@@ -39,10 +38,14 @@ export class Form extends Component<IFormProps, IForm> {
                 break;
         }
 
+        console.log('langValid', langValid);
+
         this.setState({
             countValid: countValid,
             languageValid: langValid
-        })
+        });
+
+        console.log(this.state)
     }
 
     static checkLanguage(query: string, lang: string): boolean {
@@ -52,21 +55,17 @@ export class Form extends Component<IFormProps, IForm> {
             case 'ru':
                 return /[а-яА-ЯёЁ]/.test(query);
             default:
-                alert("Unsupported language");
                 return false;
         }
     };
-
-    static errorClass(error: string): string {
-        return error.length === 0 ? '' : 'searchForm__input_error';
-    }
 
     handleLanguageChange = (event: ChangeEvent<HTMLInputElement>) => {
         this.setState({lang: event.target.value});
     };
 
     handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
-        this.setState({query: event.target.value});
+        const query = event.target.value;
+        this.setState({query: query}, () => this.validField('lang', query));
     };
 
     handleCountChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -76,7 +75,6 @@ export class Form extends Component<IFormProps, IForm> {
 
     handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        this.validField('lang', this.state.query);
         this.props.onSubmit(this.state);
         this.setState({query: ''});
     };
@@ -88,21 +86,18 @@ export class Form extends Component<IFormProps, IForm> {
 
     render() {
         const {query, lang, count, countValid} = this.state;
-        const {isBlack, disabled} = this.props;
+        const {disabled} = this.props;
 
         const isDisabled = !query || !countValid;
         const inputTheme = countValid ? styles.searchForm__inputCount : styles.searchForm__inputCount_error;
 
         return (
             <form className={styles.searchForm} onSubmit={this.handleSubmit} onReset={this.handleReset}>
-                <div className={styles.searchForm__errors}>
-
-                </div>
                 <div className={styles.searchForm__formContainer}>
                     <input
                         className={styles.searchForm__inputQuery}
                         type="search" onChange={this.handleQueryChange}
-                        placeholder="Введите запрос" value={query}
+                        placeholder="Введите запрос" value={query === '' ? '' : query}
                     />
                     <div className={styles.searchForm__inputCountContainer}>
                         <input
@@ -111,10 +106,7 @@ export class Form extends Component<IFormProps, IForm> {
                             pattern="[0-9]*" value={count}
                         />
                         {
-                            !countValid && <CountErrors
-                                error="count"
-                                message={"Значение должно быть больше 0 и меньше 21"}
-                            />
+                            !countValid && <CountError />
                         }
                     </div>
                     <ImageButton type={"submit"} disable={isDisabled} src={iconSearch} alt={"Search"} title={"Найти"}/>

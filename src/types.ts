@@ -13,8 +13,7 @@ export interface IForm {
 }
 
 export interface IErrors {
-    error: string;
-    message: string;
+    isClose: boolean;
 }
 
 export interface IWiki {
@@ -24,4 +23,5 @@ export interface IWiki {
     time: string;
     reset: boolean;
     showInstruction: boolean;
+    showModal: boolean;
 }

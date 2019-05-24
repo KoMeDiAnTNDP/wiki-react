@@ -8,6 +8,9 @@
     color: #a94442;
     border: 2px solid #a94442;
     border-radius: 8px;
+    font-size: 15px;
+    background: #ffc000;
+    z-index: 1;
 }
 
 .searchForm__errorCountContainer:after
@@ -26,26 +29,29 @@
 .searchForm__errorCount
 {
     margin: auto;
-    width: 160px;
+    width: 180px;
+    text-align: center;
 }
 
 @media screen and (max-width: 1024px){
     .searchForm__errorCountContainer
     {
         width: 160px;
-        top: -45px;
+        height: 35px;
+        top: -50px;
         left: -190%;
+        border: 2px solid #a94442;
     }
 
     .searchForm__errorCount
     {
         display: flex;
-        width: 80%;
+        width: 90%;
         margin: auto;
         text-align: center;
     }
 
-    .error__text
+    .error__countText
     {
         font-size: 13px;
     }
@@ -55,9 +61,10 @@
     .searchForm__errorCountContainer
     {
         display: flex;
-        width: 160px;
-        top: 35px;
-        left: -200%;
+        width: 180px;
+        top: 40px;
+        left: -235%;
+        font-size: 20px;
     }
 
     .searchForm__errorCountContainer:after
@@ -67,7 +74,7 @@
         height: 0;
         position: absolute;
         top: -14px;
-        left: 45%;
+        left: 46%;
         border-top: 7px solid transparent;
         border-bottom: 7px solid #a94442;
     }
@@ -80,7 +87,7 @@
         text-align: center;
     }
 
-    .error__text
+    .error__countText
     {
         font-size: 13px;
     }

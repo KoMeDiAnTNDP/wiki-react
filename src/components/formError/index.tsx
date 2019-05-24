@@ -1,18 +1,16 @@
 import React from 'react';
 
 import styles from './fromError.module.css';
-import {IErrors} from "../../types";
 
-export function CountErrors({error, message}: IErrors) {
-    const errorContainer = error === 'count' ? styles.searchForm__errorCountContainer : '';
-    const errorClassName = error === 'count' ? styles.searchForm__errorCount : '';
+export function CountError() {
 
     return (
-        <div className={errorContainer}>
-            <div className={errorClassName}>
-                <span className={styles.error__text}>{message}</span>
+        <div className={styles.searchForm__errorCountContainer}>
+            <div className={styles.searchForm__errorCount}>
+                <span className={styles.error__countText}>
+                    Значение должно быть больше 1 и меньше 21
+                </span>
             </div>
         </div>
-    );
+    )
 }
-
