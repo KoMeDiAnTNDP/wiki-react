@@ -1,5 +1,6 @@
 .searchForm__button
 {
+    display: flex;
     margin-left: 5px;
     cursor: pointer;
     border-radius: 8px;
@@ -22,4 +23,11 @@
     height: 16px;
     display: flex;
     margin: auto;
+}
+
+@media screen and (max-width: 730px){
+    .searchForm__button
+    {
+        width: 30px;
+    }
 }

@@ -37,7 +37,7 @@
 {
     position: relative;
     display: flex;
-    width: 32px;
+    width: 13%;
     height: 100%;
     margin-left: 5px;
 }
@@ -87,10 +87,5 @@
     .searchForm__formContainer
     {
         width: 95%;
-    }
-
-    .searchForm__inputCount
-    {
-        width: 30px;
     }
 }
