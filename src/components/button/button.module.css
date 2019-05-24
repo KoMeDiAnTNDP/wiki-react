@@ -23,13 +23,3 @@
     display: flex;
     margin: auto;
 }
-
-@media screen and (max-width: 730px) {
-    .searchFrom__buttonIcon
-    {
-        display: flex;
-        width: 18px;
-        height: 18px;
-        margin: auto;
-    }
-}

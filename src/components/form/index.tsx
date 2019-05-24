@@ -59,22 +59,31 @@ export class Form extends Component<IFormProps, IForm> {
         }
     };
 
+    static checkNumber(number:string): boolean {
+        if (number.length === 1) {
+            return true;
+        }
+
+        return number[0] !== '0';
+    }
+
     handleLanguageChange = (event: ChangeEvent<HTMLInputElement>) => {
         this.setState({lang: event.target.value});
     };
 
     handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
         const query = event.target.value;
-        this.setState({query: query}, () => this.validField('lang', query));
+        this.setState({query: query});
     };
 
     handleCountChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const count = event.target.validity.valid ? event.target.value : '';
+        const count = event.target.validity.valid && Form.checkNumber(event.target.value) ? event.target.value : '';
         this.setState({count: count}, () => this.validField('count', count));
     };
 
     handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        this.validField('lang', this.state.query);
         this.props.onSubmit(this.state);
         this.setState({query: ''});
     };
@@ -97,13 +106,13 @@ export class Form extends Component<IFormProps, IForm> {
                     <input
                         className={styles.searchForm__inputQuery}
                         type="search" onChange={this.handleQueryChange}
-                        placeholder="Введите запрос" value={query === '' ? '' : query}
+                        placeholder="Введите запрос" value={query}
                     />
                     <div className={styles.searchForm__inputCountContainer}>
                         <input
                             className={inputTheme}
                             type="text" onChange={this.handleCountChange}
-                            pattern="[0-9]*" value={count}
+                            pattern="^\d*$" value={count}
                         />
                         {
                             !countValid && <CountError />
