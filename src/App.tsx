@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import cn from 'classnames';
+
 import styles from './app.module.css';
 import { Form } from "./components/form";
 import { Instruction } from "./components/instruction";
@@ -85,27 +87,31 @@ export default class App extends Component {
     render() {
         const {articles, requestFailed, isBlack, time, reset, showInstruction, showModal} = this.state;
 
-        const themeClassName =  isBlack ? styles.wikiSearcher_theme_black : styles.wikiSearcher;
-        const headerClassName = isBlack ? styles.head__title_theme_black : styles.head__title;
+        const wikiClassName = articles.length === 0 ? styles.wikiSearcher_count_null : styles.wikiSearcher;
+        const themeClassName = isBlack ? cn(wikiClassName, styles.wikiSearcher_theme_black) : wikiClassName;
+        const headClassName = isBlack ? styles.headContainer_theme_black : styles.headContainer;
+        const titleClassName = isBlack ? styles.head__title_theme_black : styles.head__title;
         const hintClassName = isBlack ? styles.function__hint_theme_black : styles.function__hint;
         const moonClassName = isBlack ? styles.moonColor : styles.moon;
 
         return (
             <div className={themeClassName}>
-                <header className={styles.head}>
-                    <h1 className={headerClassName}>Wiki Searcher</h1>
-                </header>
+                <div className={headClassName}>
+                    <header className={styles.head}>
+                        <h1 className={titleClassName}>Wiki Searcher</h1>
+                    </header>
+                    <div className={styles.function}>
+                        <div className={hintClassName} onClick={this.handleInstructionClick}/>
+                        <div className={moonClassName} onClick={this.handleThemeClick} />
+                    </div>
+                    <Form
+                        onSubmit={this.handleFormSubmit}
+                        onReset={this.handleReset}
+                        disabled={articles.length === 0}
+                    />
+                </div>
                 {showModal && <ModalError onClose={this.handleCloseModel}/>}
                 {showInstruction && <Instruction onClick={this.handleInstructionClick}/>}
-                <div className={styles.function}>
-                    <div className={hintClassName} onClick={this.handleInstructionClick}/>
-                    <div className={moonClassName} onClick={this.handleThemeClick} />
-                </div>
-                <Form
-                    onSubmit={this.handleFormSubmit}
-                    onReset={this.handleReset}
-                    disabled={articles.length === 0}
-                />
                 {
                     !requestFailed ? !showModal &&
                         <Result
@@ -115,7 +121,7 @@ export default class App extends Component {
                             time={time}
                         /> : <h1>Failed</h1>
                 }
-                <Footer isBlack={isBlack}/>
+                <Footer isBlack={isBlack} isZero={articles.length === 0 || showModal}/>
             </div>
         )
     }

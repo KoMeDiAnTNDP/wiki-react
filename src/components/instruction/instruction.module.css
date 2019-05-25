@@ -26,17 +26,12 @@
     width: 50%;
 }
 
-.instruction__image
-{
-    width: 100%;
-}
-
 .instruction__legend
 {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .legend__item
@@ -107,9 +102,30 @@
     }
 }
 
+@media screen  and (max-width: 1024px) and (orientation: landscape){
+    .instruction
+    {
+        width: 75%;
+    }
+
+    .instruction__closeIcon
+    {
+        top: 10px;
+        right: 10px;
+    }
+}
+
 @media screen and (max-width: 730px) {
     .instruction
     {
         width: 90%;
+    }
+}
+
+@media screen and (max-width: 730px) and (orientation: landscape){
+    .instruction
+    {
+        width: 80%;
+        margin: 20px auto;
     }
 }

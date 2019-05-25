@@ -31,7 +31,7 @@ export class ModalError extends Component<IModalProps, IModalState> {
                 <div className={styles.modal}>
                     <span className={styles.modal__closeIcon} onClick={this.handleClose}/>
                     <span className={styles.modal__text}>
-                    Введённый язык не соответствует выбранному, возможно вы не найдёте, то что ищите
+                    Введённый язык не соответствует выбранному, возможно, вы не найдёте то, что ищите
                 </span>
                 </div>
             </div>

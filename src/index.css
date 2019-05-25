@@ -1,7 +1,11 @@
 html
 {
     height: 100%;
-    overflow-y: hidden;
+}
+
+html::-webkit-scrollbar
+{
+    display: none;
 }
 
 body

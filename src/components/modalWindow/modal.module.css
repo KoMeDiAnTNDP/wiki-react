@@ -81,3 +81,16 @@
         width: 80%;
     }
 }
+
+@media screen and (max-width: 730px) and (orientation: landscape){
+    .modal
+    {
+        width: 60%;
+        height: 40%;
+    }
+
+    .modal__text
+    {
+        width: 70%;
+    }
+}

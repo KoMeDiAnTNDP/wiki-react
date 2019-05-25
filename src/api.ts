@@ -14,7 +14,7 @@ export class WikiApi {
     getWikiData() {
         const api: string = `https://${this.lang}.wikipedia.org/w/api.php?` +
             `action=query&format=json&origin=*&prop=extracts|info&generator=search&` +
-            `utf8=1&exsentences=2&exlimit=${this.count}&exintro=1&explaintext=1&inprop=url&` +
+            `utf8=1&exsentences=4&exlimit=${this.count}&exintro=1&explaintext=1&inprop=url&` +
             `gsrsearch=${this.query}&gsrnamespace=0&gsrlimit=${this.count}`;
 
         return fetch(api)

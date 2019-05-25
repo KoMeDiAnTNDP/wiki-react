@@ -5,12 +5,10 @@ import styles from './fromError.module.css';
 export function CountError() {
 
     return (
-        <div className={styles.searchForm__errorCountContainer}>
-            <div className={styles.searchForm__errorCount}>
-                <span className={styles.error__countText}>
-                    Значение должно быть больше 1 и меньше 21
-                </span>
-            </div>
+        <div className={styles.searchForm__errorCount}>
+            <span className={styles.error__countText}>
+                Значение должно быть не более 20
+            </span>
         </div>
     )
 }

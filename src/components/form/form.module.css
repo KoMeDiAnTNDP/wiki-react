@@ -71,21 +71,21 @@
 @media screen and (max-width: 1024px){
     .searchForm__formContainer
     {
-        width: 75%;
+        width: 85%;
     }
 }
 
 @media screen and (max-width: 730px) {
     .searchForm
     {
-        height: 40px;
+        height: 25px;
         margin-bottom: 10px;
     }
 
     .searchForm__formContainer
     {
         width: 95%;
-        height: 40px;
+        height: 25px;
     }
 
     .searchForm__inputQuery
@@ -96,6 +96,6 @@
     .searchForm__inputCountContainer
     {
         width: 60px;
-        height: 40px;
+        height: 25px;
     }
 }
