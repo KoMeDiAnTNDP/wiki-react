@@ -16,10 +16,11 @@ export function Articles({articles, isBlack, reset}: IArticlesProps) {
 
     const articlesClassName = reset ? styles.articlesContainer_reset : styles.articlesContainer;
     const linkClassName = isBlack ? styles.article__titleLink_color_white : styles.article__titleLink;
+    const articlesTheme = isBlack ? styles.articles_theme_black : styles.articles;
 
     return (
         <div className={articlesClassName}>
-            <div className={styles.articles}>
+            <div className={articlesTheme}>
                 {
                     articles.map((article, index) => {
                         const articleClassName = index === 0 ? styles.article_first : styles.article;

@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
     color: #404040;
     transition: all 1s ease;
     background: #fefefe;
@@ -87,14 +88,9 @@
     background-image: url("pic/hint-color.svg");
 }
 
-.wikiSearcher_count_null
-{
-    composes: wikiSearcher;
-    height: 100%;
-}
-
 .wikiSearcher_theme_black
 {
+    composes: wikiSearcher;
     background-color: #252525;
     color: #c0c0c0;
     transition: all 1s ease;

@@ -23,14 +23,26 @@
 
 .articles
 {
-    width: 70%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 53px;
+    padding-bottom: 15px;
+    background-color: #fefefe;
+    transition: all 1s ease;
+}
+
+.articles_theme_black
+{
+    composes: articles;
+    background: #252525;
 }
 
 .article
 {
-    margin-top: 30px;
-    width: 100%;
+
+    width: 70%;
+    margin: 30px auto 0;
 }
 
 .article_first
@@ -42,12 +54,14 @@
 .article__titleLink
 {
     color: #202020;
+    transition: all 1s ease;
     text-decoration: none;
 }
 
 .article__titleLink_color_white
 {
     color: #e0e0e0;
+    transition: all 1s ease;
     text-decoration: none;
 }
 
@@ -82,9 +96,9 @@
 }
 
 @media screen and (max-width: 1024px){
-    .articles
+    .article
     {
-        width: 75%;
+        width: 85%;
         margin: 0 auto;
     }
 }
@@ -102,8 +116,11 @@
 
     .articles
     {
-        width: 90%;
-        margin: 0 auto;
+        width: 100%;
+    }
 
+    .article
+    {
+        width: 90%;
     }
 }

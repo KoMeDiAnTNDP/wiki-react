@@ -2,16 +2,12 @@ import React from 'react';
 
 import styles from './footer.module.css'
 
-import cn from 'classnames';
-
 interface IFooter {
     isBlack: boolean;
-    isZero: boolean;
 }
 
-export function Footer({isBlack, isZero}: IFooter) {
-    const footer = isZero ? styles.footer_count_null : styles.footer;
-    const footerTheme = isBlack ? cn(styles.footer_theme_black, footer) : footer;
+export function Footer({isBlack}: IFooter) {
+    const footerTheme = isBlack ? styles.footer_theme_black : styles.footer;
     const contactsLinkTheme = isBlack ? styles.contacts__link_theme_black : styles.contacts__link;
     const wikiLinkTheme = isBlack ? styles.wikiApi__link_theme_black : styles.wikiApi__link;
     const iconGitTheme = isBlack ? styles.contacts__gitIcon_theme_black : styles.contacts__gitIcon;

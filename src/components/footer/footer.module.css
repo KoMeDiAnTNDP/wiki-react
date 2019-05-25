@@ -95,14 +95,7 @@
 @media screen and (max-width: 730px) {
     .footer
     {
-        position: relative;
-        font-size: 13px;
-    }
-
-    .footer_count_null
-    {
-        composes: footer;
         position: fixed;
-        bottom: 0;
+        font-size: 13px;
     }
 }

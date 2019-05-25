@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import cn from 'classnames';
-
 import styles from './app.module.css';
 import { Form } from "./components/form";
 import { Instruction } from "./components/instruction";
@@ -87,8 +85,7 @@ export default class App extends Component {
     render() {
         const {articles, requestFailed, isBlack, time, reset, showInstruction, showModal} = this.state;
 
-        const wikiClassName = articles.length === 0 ? styles.wikiSearcher_count_null : styles.wikiSearcher;
-        const themeClassName = isBlack ? cn(wikiClassName, styles.wikiSearcher_theme_black) : wikiClassName;
+        const themeClassName = isBlack ? styles.wikiSearcher_theme_black : styles.wikiSearcher;
         const headClassName = isBlack ? styles.headContainer_theme_black : styles.headContainer;
         const titleClassName = isBlack ? styles.head__title_theme_black : styles.head__title;
         const hintClassName = isBlack ? styles.function__hint_theme_black : styles.function__hint;
@@ -121,7 +118,7 @@ export default class App extends Component {
                             time={time}
                         /> : <h1>Failed</h1>
                 }
-                <Footer isBlack={isBlack} isZero={articles.length === 0 || showModal}/>
+                <Footer isBlack={isBlack}/>
             </div>
         )
     }

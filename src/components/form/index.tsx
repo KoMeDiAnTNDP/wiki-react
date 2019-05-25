@@ -58,7 +58,7 @@ export class Form extends Component<IFormProps, IForm> {
 
     handleReset = () => {
         this.props.onReset();
-        this.setState({count: '10'})
+        this.setState({query: '', count: '10'})
     };
 
     render() {
@@ -87,7 +87,7 @@ export class Form extends Component<IFormProps, IForm> {
                         }
                     </div>
                     <ImageButton type={"submit"} disable={isDisabled} src={iconSearch} alt={"Search"} title={"Найти"}/>
-                    <ImageButton type={"reset"} disable={disabled} src={iconRefresh} alt={"Resfresh"} title={"Отчистить"}/>
+                    <ImageButton type={"reset"} disable={disabled} src={iconRefresh} alt={"Resfresh"} title={"Обновить"}/>
                     <div className={styles.searchLanguage}>
                         <LanguageSelector onChange={this.handleLanguageChange} lang="en" checked={lang === "en"}/>
                         <LanguageSelector onChange={this.handleLanguageChange} lang="ru" checked={lang === "ru"}/>
