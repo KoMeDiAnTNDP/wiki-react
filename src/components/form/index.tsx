@@ -19,45 +19,14 @@ export class Form extends Component<IFormProps, IForm> {
         query: '',
         lang: 'en',
         count: '10',
-        countValid: true,
-        languageValid: true
+        countValid: true
     };
 
-    validField(fieldName: string, value: string) {
-        let countValid = this.state.countValid;
-        let langValid = this.state.languageValid;
-
-        switch (fieldName) {
-            case 'count':
-                countValid = Number(value) > 0 && Number(value) <= 20;
-                break;
-            case 'lang':
-                langValid = Form.checkLanguage(value, this.state.lang);
-                break;
-            default:
-                break;
-        }
-
-        console.log('langValid', langValid);
-
+    validCount(value: string) {
         this.setState({
-            countValid: countValid,
-            languageValid: langValid
+            countValid: Number(value) > 0 && Number(value) <= 20
         });
-
-        console.log(this.state)
     }
-
-    static checkLanguage(query: string, lang: string): boolean {
-        switch (lang) {
-            case 'en':
-                return /[a-zA-z]/.test(query);
-            case 'ru':
-                return /[а-яА-ЯёЁ]/.test(query);
-            default:
-                return false;
-        }
-    };
 
     static checkNumber(number:string): boolean {
         if (number.length === 1) {
@@ -68,7 +37,8 @@ export class Form extends Component<IFormProps, IForm> {
     }
 
     handleLanguageChange = (event: ChangeEvent<HTMLInputElement>) => {
-        this.setState({lang: event.target.value});
+        const lang = event.target.value;
+        this.setState({lang: lang});
     };
 
     handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -78,12 +48,11 @@ export class Form extends Component<IFormProps, IForm> {
 
     handleCountChange = (event: ChangeEvent<HTMLInputElement>) => {
         const count = event.target.validity.valid && Form.checkNumber(event.target.value) ? event.target.value : '';
-        this.setState({count: count}, () => this.validField('count', count));
+        this.setState({count: count}, () => this.validCount(count));
     };
 
     handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        this.validField('lang', this.state.query);
         this.props.onSubmit(this.state);
         this.setState({query: ''});
     };

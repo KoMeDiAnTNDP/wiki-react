@@ -9,11 +9,6 @@ export interface IForm {
     lang: string;
     count: string;
     countValid: boolean;
-    languageValid: boolean;
-}
-
-export interface IErrors {
-    isClose: boolean;
 }
 
 export interface IWiki {

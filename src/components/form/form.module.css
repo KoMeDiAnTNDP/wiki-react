@@ -93,6 +93,11 @@
         height: 40px;
     }
 
+    .searchForm__inputQuery
+    {
+        height: 40px;
+    }
+
     .searchForm__inputCountContainer
     {
         width: 60px;

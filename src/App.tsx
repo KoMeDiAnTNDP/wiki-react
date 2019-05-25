@@ -28,7 +28,7 @@ export default class App extends Component {
         const data = `${query.query}: ${(end - start).toFixed(3)} ${new Date()}`;
         localStorage.setItem(query.query, data);
 
-        this.setState({time: (end - start).toFixed(3), showModal: !query.languageValid });
+        this.setState({time: (end - start).toFixed(3), showModal: !App.checkLanguage(query.query, query.lang) });
 
         wikiApi.then(articles =>
         {
@@ -41,6 +41,17 @@ export default class App extends Component {
                 articles: articles
             })
         }).catch(() => this.setState({requestFailed: true}))
+    };
+
+    static checkLanguage(query: string, lang: string): boolean {
+        switch (lang) {
+            case 'en':
+                return /[a-zA-z]/.test(query);
+            case 'ru':
+                return /[а-яА-ЯёЁ]/.test(query);
+            default:
+                return false;
+        }
     };
 
     handleReset = () => {
