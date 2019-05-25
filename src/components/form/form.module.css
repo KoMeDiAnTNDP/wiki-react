@@ -90,10 +90,12 @@
     .searchForm__formContainer
     {
         width: 95%;
+        height: 40px;
     }
 
     .searchForm__inputCountContainer
     {
         width: 60px;
+        height: 40px;
     }
 }
