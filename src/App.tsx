@@ -98,8 +98,8 @@ export default class App extends Component {
                         <h1 className={titleClassName}>Wiki Searcher</h1>
                     </header>
                     <div className={styles.function}>
-                        <div className={hintClassName} onClick={this.handleInstructionClick}/>
-                        <div className={moonClassName} onClick={this.handleThemeClick} />
+                        <div className={hintClassName} title="Подсказка" onClick={this.handleInstructionClick}/>
+                        <div className={moonClassName} title="Тема" onClick={this.handleThemeClick} />
                     </div>
                     <Form
                         onSubmit={this.handleFormSubmit}

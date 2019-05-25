@@ -81,6 +81,7 @@ export class Form extends Component<IFormProps, IForm> {
                             className={inputTheme}
                             type="text" onChange={this.handleCountChange}
                             pattern="^\d*$" value={count}
+                            title="Количество страниц"
                         />
                         {
                             !countValid && <CountError />
