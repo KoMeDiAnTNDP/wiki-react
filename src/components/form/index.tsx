@@ -58,7 +58,7 @@ export class Form extends Component<IFormProps, IForm> {
 
     handleReset = () => {
         this.props.onReset();
-        this.setState({count: ''})
+        this.setState({count: '10'})
     };
 
     render() {
