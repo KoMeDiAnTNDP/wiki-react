@@ -15,7 +15,7 @@ export function LanguageSelector({onChange, lang, checked}: ILanguageProps) {
         : iconLangClassName;
 
     return (
-        <label className={opacityClassName} title={lang} htmlFor={lang}>
+        <label className={opacityClassName} title={lang === 'en' ? 'ENG' : 'RU'} htmlFor={lang}>
             <input
                 className={styles.searchForm__radioLang}
                 type="radio"
