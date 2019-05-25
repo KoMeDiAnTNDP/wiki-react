@@ -73,7 +73,7 @@ export class Form extends Component<IFormProps, IForm> {
                 <div className={styles.searchForm__formContainer}>
                     <input
                         className={styles.searchForm__inputQuery}
-                        type="search" onChange={this.handleQueryChange}
+                        type="text" onChange={this.handleQueryChange}
                         placeholder="Введите запрос" value={query}
                     />
                     <div className={styles.searchForm__inputCountContainer}>
