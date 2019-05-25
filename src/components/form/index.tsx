@@ -54,7 +54,6 @@ export class Form extends Component<IFormProps, IForm> {
     handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         this.props.onSubmit(this.state);
-        this.setState({query: ''});
     };
 
     handleReset = () => {
