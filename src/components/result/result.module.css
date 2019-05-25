@@ -11,7 +11,7 @@
 .searchResult__time
 {
     width: 70%;
-    margin: 10px auto;
+    margin: 0 auto;
     animation: show .4s forwards ease;
 }
 
