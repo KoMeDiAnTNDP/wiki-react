@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 
+import cn from 'classnames';
+
 import styles from './app.module.css';
 import { Form } from "./components/form";
 import { Instruction } from "./components/instruction";
-import { ModalError } from "./components/modalWindow";
 import { Footer } from "./components/footer";
 import { IWiki,  IForm } from "./types";
 import { WikiApi } from './api';
@@ -17,8 +18,7 @@ export default class App extends Component {
         isBlack: false,
         time: '',
         reset: false,
-        showInstruction: true,
-        showModal: false
+        showInstruction: true
     };
 
     handleFormSubmit = (query: IForm) => {
@@ -28,7 +28,7 @@ export default class App extends Component {
         const data = `${query.query}: ${(end - start).toFixed(3)} ${new Date()}`;
         localStorage.setItem(query.query, data);
 
-        this.setState({time: (end - start).toFixed(3), showModal: !App.checkLanguage(query.query, query.lang) });
+        this.setState({time: (end - start).toFixed(3)});
 
         wikiApi.then(articles =>
         {
@@ -41,17 +41,6 @@ export default class App extends Component {
                 articles: articles
             })
         }).catch(() => this.setState({requestFailed: true}))
-    };
-
-    static checkLanguage(query: string, lang: string): boolean {
-        switch (lang) {
-            case 'en':
-                return /[a-zA-z]/.test(query);
-            case 'ru':
-                return /[а-яА-ЯёЁ]/.test(query);
-            default:
-                return false;
-        }
     };
 
     handleReset = () => {
@@ -83,12 +72,12 @@ export default class App extends Component {
     };
 
     render() {
-        const {articles, requestFailed, isBlack, time, reset, showInstruction, showModal} = this.state;
-
-        const themeClassName = isBlack ? styles.wikiSearcher_theme_black : styles.wikiSearcher;
+        const {articles, requestFailed, isBlack, time, reset, showInstruction} = this.state;
+        const appClassName = showInstruction ? styles.wikiSearcher_scroll : styles.wikiSearcher;
+        const themeClassName = isBlack ? cn(styles.wikiSearcher_theme_black, appClassName) : appClassName;
         const headClassName = isBlack ? styles.headContainer_theme_black : styles.headContainer;
         const titleClassName = isBlack ? styles.head__title_theme_black : styles.head__title;
-        const hintClassName = isBlack ? styles.function__hint_theme_black : styles.function__hint;
+        const hintClassName = isBlack ? styles.hint_theme_black : styles.hint;
         const moonClassName = isBlack ? styles.moonColor : styles.moon;
 
         return (
@@ -97,20 +86,17 @@ export default class App extends Component {
                     <header className={styles.head}>
                         <h1 className={titleClassName}>Wiki Searcher</h1>
                     </header>
-                    <div className={styles.function}>
-                        <div className={hintClassName} title="Подсказка" onClick={this.handleInstructionClick}/>
-                        <div className={moonClassName} title="Тема" onClick={this.handleThemeClick} />
-                    </div>
+                    <div className={hintClassName} title="Подсказка" onClick={this.handleInstructionClick}/>
+                    <div className={moonClassName} title="Тема" onClick={this.handleThemeClick} />
                     <Form
                         onSubmit={this.handleFormSubmit}
                         onReset={this.handleReset}
                         disabled={articles.length === 0}
                     />
                 </div>
-                {showModal && <ModalError onClose={this.handleCloseModel}/>}
                 {showInstruction && <Instruction onClick={this.handleInstructionClick}/>}
                 {
-                    !requestFailed ? !showModal &&
+                    !requestFailed ?
                         <Result
                             articles={articles}
                             isBlack={isBlack}

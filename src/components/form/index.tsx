@@ -2,7 +2,6 @@ import React, {ChangeEvent, Component, FormEvent} from 'react';
 
 import {IForm} from "../../types";
 import { ImageButton } from "../button";
-import { LanguageSelector } from "../languages";
 import iconSearch from "../../pic/search.svg";
 import iconRefresh from "../../pic/refresh.svg";
 import styles from './form.module.css';
@@ -17,7 +16,6 @@ interface IFormProps {
 export class Form extends Component<IFormProps, IForm> {
     state: IForm = {
         query: '',
-        lang: 'en',
         count: '10',
         countValid: true
     };
@@ -36,18 +34,13 @@ export class Form extends Component<IFormProps, IForm> {
         return number[0] !== '0';
     }
 
-    handleLanguageChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const lang = event.target.value;
-        this.setState({lang: lang});
-    };
-
     handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
         const query = event.target.value;
         this.setState({query: query});
     };
 
     handleCountChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const count = event.target.validity.valid && Form.checkNumber(event.target.value) ? event.target.value : '';
+        const count = event.target.validity.valid && Form.checkNumber(event.target.value) ? event.target.value : this.state.count;
         this.setState({count: count}, () => this.validCount(count));
     };
 
@@ -62,7 +55,7 @@ export class Form extends Component<IFormProps, IForm> {
     };
 
     render() {
-        const {query, lang, count, countValid} = this.state;
+        const {query, count, countValid} = this.state;
         const {disabled} = this.props;
 
         const isDisabled = !query || !countValid;
@@ -89,10 +82,6 @@ export class Form extends Component<IFormProps, IForm> {
                     </div>
                     <ImageButton type={"submit"} disable={isDisabled} src={iconSearch} alt={"Search"} title={"Найти"}/>
                     <ImageButton type={"reset"} disable={disabled} src={iconRefresh} alt={"Resfresh"} title={"Обновить"}/>
-                    <div className={styles.searchLanguage}>
-                        <LanguageSelector onChange={this.handleLanguageChange} lang="en" checked={lang === "en"}/>
-                        <LanguageSelector onChange={this.handleLanguageChange} lang="ru" checked={lang === "ru"}/>
-                    </div>
                 </div>
             </form>
         )

@@ -4,37 +4,16 @@
     flex-direction: column;
 }
 
+.plan__title
+{
+    font-size: 20px;
+}
+
 .plan__item
 {
     display: flex;
     margin-bottom: 10px;
     height: 30px;
-}
-
-.plan__languagesIcons
-{
-    display: flex;
-    margin-right: 5px;
-}
-
-.plan__languageIcon
-{
-    display: block;
-    width: 30px;
-    height: 30px;
-}
-
-.plan__enIcon
-{
-    composes: plan__languageIcon;
-    background: url("../../pic/united-kingdom.svg");
-    margin-right: 10px;
-}
-
-.plan__ruIcon
-{
-    composes: plan__languageIcon;
-    background: url("../../pic/russia.svg");
 }
 
 .plan__inputQuery
@@ -94,6 +73,7 @@
     margin-right: 10px;
     background-size: 30px 30px;
     background-image: url("../../pic/hint-color.svg");
+    background-repeat: no-repeat;
 }
 
 .plan__theme
@@ -129,18 +109,6 @@
     .plan__inputCount
     {
         height: 22px;
-    }
-
-    .plan__languageIcon,
-    .plan__functionIcon
-    {
-        width: 25px;
-        height: 25px;
-    }
-
-    .plan__hint
-    {
-        background-size: 25px 25px;
     }
 
     .plan__inputQuery

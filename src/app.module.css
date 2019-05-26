@@ -9,6 +9,20 @@
     background: #fefefe;
 }
 
+.wikiSearcher_theme_black
+{
+    composes: wikiSearcher;
+    background-color: #252525;
+    color: #c0c0c0;
+    transition: all 1s ease;
+}
+
+.wikiSearcher_scroll
+{
+    composes: wikiSearcher;
+    overflow-y: hidden;
+}
+
 .headContainer
 {
     position: fixed;
@@ -47,7 +61,9 @@
 
 .moon
 {
-    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     width: 30px;
     height: 30px;
     background: url("pic/moon.svg");
@@ -61,20 +77,13 @@
     background: url("pic/moon-color.svg");
 }
 
-.function
+.hint
 {
-    display: flex;
     position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.function__hint
-{
-    display: flex;
     width: 30px;
     height: 30px;
-    margin-right: 10px;
+    top: 20px;
+    left: 20px;
     background-size: 30px 30px;
     background-image: url("pic/hint.svg");
     cursor: pointer;
@@ -82,24 +91,19 @@
     transition: all .4s ease;
 }
 
-.function__hint_theme_black
+.hint_theme_black
 {
-    composes: function__hint;
+    composes: hint;
     background-image: url("pic/hint-color.svg");
-}
-
-.wikiSearcher_theme_black
-{
-    composes: wikiSearcher;
-    background-color: #252525;
-    color: #c0c0c0;
-    transition: all 1s ease;
 }
 
 @media screen and (max-width: 730px){
     .headContainer
     {
+        width: 95%;
+        margin: 0 auto;
         position: relative;
+        height: 105px;
     }
 
     .head

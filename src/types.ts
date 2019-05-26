@@ -6,7 +6,6 @@ export interface IArticleData {
 
 export interface IForm {
     query: string;
-    lang: string;
     count: string;
     countValid: boolean;
 }
@@ -18,5 +17,4 @@ export interface IWiki {
     time: string;
     reset: boolean;
     showInstruction: boolean;
-    showModal: boolean;
 }

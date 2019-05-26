@@ -1,12 +1,9 @@
 .articlesContainer
 {
     display: flex;
-    position: relative;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding-bottom: 20px;
-
     animation: slide-up .4s forwards ease;
 }
 
@@ -26,16 +23,15 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 53px;
-    padding-bottom: 15px;
     background-color: #fefefe;
+    padding-bottom: 15px;
     transition: all 1s ease;
 }
 
 .articles_theme_black
 {
     composes: articles;
-    background: #252525;
+    background: #242424;
 }
 
 .article
@@ -107,6 +103,7 @@
     .articlesContainer
     {
         overflow-y: visible;
+        padding: 0;
     }
 
     .articlesContainer::-webkit-scrollbar
@@ -117,6 +114,7 @@
     .articles
     {
         width: 100%;
+        margin-bottom: 53px;
     }
 
     .article

@@ -14,16 +14,9 @@ export function Plan() {
 
     return (
         <div className={styles.instruction__plan}>
-            <div className={styles.plan__item}>
-                <div className={styles.plan__languagesIcons}>
-                    <span className={styles.plan__enIcon}/>
-                    <span className={styles.plan__ruIcon}/>
-                </div>
-                <span className={requiredDash}>&mdash; </span>
-                <span className={requiredText}>
-                    Выберите язык Википедии
-                </span>
-            </div>
+            <h1 className={styles.plan__title}>
+                <span className={requiredText}>Ищет только в русской википедии</span>
+            </h1>
             <div className={styles.plan__item}>
                 <input
                     className={styles.plan__inputQuery}
@@ -38,7 +31,7 @@ export function Plan() {
                     <img className={styles.button__icon} src={searchIcon} alt="Search" title="Найти"/>
                 </button>
                 <span className={requiredDash}>&mdash; </span>
-                <span className={requiredText}>Поиск по выашему запросу</span>
+                <span className={requiredText}>Поиск по вашему запросу</span>
             </div>
             <div className={styles.plan__item}>
                 <input className={styles.plan__inputCount} value="10" disabled/>
