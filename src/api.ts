@@ -10,12 +10,10 @@ export class WikiApi {
     }
 
     getWikiData() {
-        const number = Number(this.count);
-        const count = number % 2 === 0 ? number : (number + 1) / 2;
         const apiRu: string = `https://ru.wikipedia.org/w/api.php?` +
             `action=query&format=json&origin=*&prop=extracts|info&generator=search&` +
-            `utf8=1&exsentences=4&exlimit=${count}&exintro=1&explaintext=1&inprop=url&` +
-            `gsrsearch=${this.query}&gsrnamespace=0&gsrlimit=${count}`;
+            `utf8=1&exsentences=4&exlimit=${this.count}&exintro=1&explaintext=1&inprop=url&` +
+            `gsrsearch=${this.query}&gsrnamespace=0&gsrlimit=${this.count}`;
 
         return fetch(apiRu)
             .then(response => response.json())
