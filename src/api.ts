@@ -22,7 +22,7 @@ export class WikiApi {
             .then(data => {
                 if (!data.hasOwnProperty('query')) {
                     const url: string = `https://${this.lang}.wikipedia.org/wiki/${this.query}`;
-                    return [{title: this.query, extract: 'There are no such pages', fullurl: url}]
+                    return [{title: this.query, extract: 'По вашему запросу ничего не найдено', fullurl: url}]
                 }
 
                 return Object.values(data.query.pages)
