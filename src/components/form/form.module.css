@@ -45,7 +45,7 @@
 .searchForm__inputCount_error
 {
     composes: searchForm__inputCount;
-    border-color: #a94442;
+    border-color: #dc3545;
     box-shadow: inset 0 1px 1px #ececec;
 }
 

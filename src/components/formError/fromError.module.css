@@ -6,11 +6,11 @@
     width: 160px;
     top: -50px;
     left: -120%;
-    color: #a94442;
-    border: 2px solid #a94442;
+    color: #856404;
+    border: 2px solid #ffeeba;
     border-radius: 8px;
     font-size: 15px;
-    background: #ffc000;
+    background: #fff3cd;
     z-index: 1;
 }
 
@@ -24,7 +24,7 @@
     bottom: -7px;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-top: 7px solid #a94442;
+    border-top: 7px solid #ffeeba;
 }
 
 .error__countText
@@ -62,7 +62,7 @@
         border-top: 7px solid transparent;
         border-left: 7px solid transparent;
         border-right: 7px solid transparent;
-        border-bottom: 7px solid #a94442;
+        border-bottom: 7px solid #ffeeba;
     }
 
     .error__countText
