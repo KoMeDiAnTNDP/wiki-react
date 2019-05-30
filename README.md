@@ -1,8 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Wiki Search](https://wiki-searcher.herokuapp.com)
 
-## Available Scripts
+Это приложение ищет совпадения по вашему запросу в русской Википедии. Вы можете выбрать 2 темы: светлую и тёмную. Также есть возможность посмотреть подсказку, в которой можно узнать что данное поле или кнопка значит.
 
-In the project directory, you can run:
+## Элементы управления
+
+![Найти](src/pic/search.svg | width=16) &mdash; Кнопка для поиска
+
+![Обновить](src/pic/refresh.svg | width=16) &mdash; Кнопка для того чтобы убрать результат поиска и все поля ввода ставит в значение по умолчнаию.
+
+![Светлая тема](src/pic/moon.svg | width=16) ![Тёмная тема](src/pic/moon-color.svg | width=16) &mdash; Переключает со светлой темы на тёмную и наоборот.
+
+![Подсказка(светлая)](src/pic/hint.svg | width=16) ![Подсказка(теманя)](src/pic/hint-color.svg | width=16) &mdash; Подсказка
+
+## `Использование`
+
+Сначала посмиотрите подсказку, там в кратце описаны действия. После прочтения введите ваш запрос в поле "Введите запрос", затем выберите нужное вам количество статей (по умолчанию стоит 10). Потом нажмите на кнопку поиска `Найти`. Если вы хотите сменить тему со светлой на тёмную, то нажмите га полумесяц в правом верхнем углу. Если вы не знает что делают кнопки или для чего нужно то или иное поле, то нажмите на лампочку в левом верхнем углу. Для того чтобы убрать результаты поиска нажмите на кнопку `Обновить`. При нажатии на эту кнопку исчезнут результаты поиска, исчезнит ваш запрос и количество статей выставиться в 10.
+
+
+### `Ограничения`
+
+:warning:Данный сервис ищет только в __русской Википедии__. Если вы введёте запрос не на русском языке, то есть шанс, что вы не найдёте нужной вам информации.
+
 
 ### `npm start`
 
@@ -11,11 +29,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -26,19 +39,3 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
