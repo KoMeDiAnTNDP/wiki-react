@@ -4,7 +4,9 @@
 
 ## Элементы управления
 
-![Найти](src/pic/search.svg) &mdash; Кнопка для поиска
+![Найти](src/pic/search.svg?width=16px) &mdash; Кнопка для поиска
+
+<img src="https://github.com/KoMeDiAnTNDP/wiki-react/master/src/pic/search.svg" width="16">
 
 ![Обновить](src/pic/refresh.svg) &mdash; Кнопка для того чтобы убрать результат поиска и все поля ввода ставит в значение по умолчнаию.
 
